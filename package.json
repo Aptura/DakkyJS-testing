@@ -1,0 +1,26 @@
+{
+  "name": "dakky-en",
+  "version": "1.1.0",
+  "description": "Discord bot assistant in JS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Aptura",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^14.14.1",
+    "emojis": "^1.0.10",
+    "fs": "^0.0.1-security",
+    "fs-extra": "^11.1.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Aptura/DakkyJS.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Aptura/DakkyJS/issues"
+  },
+  "homepage": "https://github.com/Aptura/DakkyJS#readme"
+}
