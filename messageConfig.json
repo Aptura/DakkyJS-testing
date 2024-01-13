@@ -1,0 +1,10 @@
+{
+    "embedColorSuccess": "#00D26A",
+    "embedColorWarning": "FFCC4D",
+    "embedColorError": "FB2F61",
+  
+    "embedErrorMessage": "Une erreur est survenue!",
+  
+    "userNoPermissions": "Tu n'a pas les permissions d'exécuter cette commande.",
+    "botNoPermissions": "Je n'ai pas les perssions nécessaire au traitement de cette commande."
+  }

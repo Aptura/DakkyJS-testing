@@ -7,13 +7,13 @@ module.exports = {
     .setDescription("Cette commande permet de unban un utilisateur du serveur.")
     .addUserOption((option) =>
       option
-        .setName("pseudo")
+        .setName("userid")
         .setDescription("Pseudo de l'utilisateur qu'il faut unban")
         .setRequired(true)
     ),
   async execute(interaction) {
-    const unbanUser = interaction.options.getUser("pseudo");
-    const unbanMember = await interaction.guild.bans.fetch(unbanUser.id);
+    const { channel, options } = interaction;
+    const unbanUser = interaction.options.getInteger("idutilisateur");
 
     if (
       !interaction.member.permissions.has(PermissionsBitField.Flags.BanMembers)
@@ -25,9 +25,9 @@ module.exports = {
 
     const embed = new EmbedBuilder()
       .setColor("Red")
-      .setDescription(`:white_check_mark: ${unbanUser.tag} a été **unban**`);
+      .setDescription(`\`✅\` L'ID: ${unbanUser} a été **unban**`);
 
-    await interactionguild.members.unban(unbanMember).catch((err) => {
+    await interaction.guild.members.unban(unbanUser).catch((err) => {
       interaction.reply({ content: "Il y a eu une erreur", ephemeral: true });
     });
 
