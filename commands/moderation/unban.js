@@ -16,12 +16,14 @@ module.exports = {
     ),
   async execute(interaction) {
     const { channel, options, guild } = interaction;
-    const unbanUser = options.getString("idutilisateur");
+    const unbanUser = options.getString("userid");
+
+    await interaction.reply({ content: "Le bot réfléchit..." });
 
     if (
       !interaction.member.permissions.has(PermissionsBitField.Flags.BanMembers)
     )
-      return await interaction.reply({
+      return await interaction.editReply({
         content: "Vous devez avoir les permissions pour unban l'utilisateur",
         ephemeral: true,
       });
@@ -31,9 +33,12 @@ module.exports = {
       .setDescription(`\`✅\` L'ID: ${unbanUser} a été **unban**.`);
 
     await guild.members.unban(unbanUser).catch((err) => {
-      interaction.reply({ content: "Il y a eu une erreur", ephemeral: true });
+      interaction.editReply({
+        content: "Il y a eu une erreur",
+        ephemeral: true,
+      });
     });
 
-    await interaction.reply({ embeds: [embed] });
+    await interaction.editReply({ embeds: [embed] });
   },
 };
