@@ -4,7 +4,7 @@ const axios = require("axios");
 module.exports = {
   data: new SlashCommandBuilder()
     .setName("nsfw")
-    .setDescription("Reçois une image random"),
+    .setDescription("Reçois une image random de nsfw furry !"),
   async execute(interaction) {
     await interaction.deferReply({ ephemeral: true });
 
